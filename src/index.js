@@ -7,7 +7,8 @@ class App extends React.Component {
     // THIS IS THE ONLY TIME we do direct assignment
     // to this.state
     this.state = {
-      lat: null
+      lat: null,
+      errorMessage: ''
     }
 
     // try the geolocation
@@ -19,12 +20,19 @@ class App extends React.Component {
         });
       },
       // callback on error
-      err => console.log(err)
+      err => {
+        this.setState({
+          errorMessage: err?.message
+        });
+      }
     );
   }
   render() {
     return (
-      <div>Latitude: {this.state.lat}</div>
+      <div>
+        Latitude: {this.state.lat}<br />
+        Error: {this.state.errorMessage}
+      </div>
     );
   }
 }
