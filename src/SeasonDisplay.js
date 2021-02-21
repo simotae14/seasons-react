@@ -1,6 +1,7 @@
 import React from 'react';
 
-const SeasonDisplay = () => {
+const SeasonDisplay = ({ lat }) => {
+  console.log(lat);
   return (
     <div>
       Season Display
